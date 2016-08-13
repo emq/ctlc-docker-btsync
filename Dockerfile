@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 RUN apt-get update && apt-get install -y curl && apt-get clean && \
     curl -o /usr/bin/btsync.tar.gz \
     https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz && \
@@ -14,4 +14,5 @@ VOLUME ["/data"]
 
 EXPOSE 8888
 EXPOSE 55555
+
 ENTRYPOINT ["start-btsync"]
