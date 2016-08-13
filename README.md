@@ -12,12 +12,12 @@
 
 Build the container with the following command:
 
-    docker build -t="emqz/btsync" github.com/emq/ctlc-docker-btsync
+    docker build -t="emqz/btsync" github.com/emq/docker-btsync
 
 Build the container locally with the following commands:
 
-    git clone git@github.com:emq/ctlc-docker-btsync.git
-    cd ctlc-docker-btsync
+    git clone git@github.com:emq/docker-btsync.git
+    cd docker-btsync
     docker build -t="emqz/btsync" .
 
 Or download [automated build](https://registry.hub.docker.com/u/emqz/btsync/) from public [Docker Hub Registry](https://registry.hub.docker.com/):
