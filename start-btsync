@@ -18,7 +18,7 @@ echo "{
             \"secret\": \"$SECRET\",
             \"dir\": \"/data\",
             \"use_relay_server\": false,
-            \"use_tracker\": true,
+            \"use_tracker\": false,
             \"search_lan\": true,
             \"use_sync_trash\": false
         }
