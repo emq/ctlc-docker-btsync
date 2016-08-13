@@ -17,7 +17,7 @@ echo "{
         {
             \"secret\": \"$SECRET\",
             \"dir\": \"/data\",
-            \"use_relay_server\": true,
+            \"use_relay_server\": false,
             \"use_tracker\": true,
             \"search_lan\": true,
             \"use_sync_trash\": false
