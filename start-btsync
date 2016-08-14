@@ -1,12 +1,7 @@
 #!/bin/bash
-SECRET="${@}"
-: ${SECRET:=`btsync --generate-secret`}
-
-echo "Starting btsync with secret: $SECRET"
-
 echo "{
-    \"device_name\": \"Sync Server\",
-    \"listening_port\": 55555,
+    \"device_name\": \"$HOSTNAME\",
+    \"listening_port\": $BT_PORT,
     \"lan_encrypt_data\": true,
     \"storage_path\": \"/btsync/.sync\",
     \"pid_file\": \"/var/run/btsync/btsync.pid\",
@@ -17,14 +12,17 @@ echo "{
     \"send_statistics\": false,
     \"shared_folders\": [
         {
-            \"secret\": \"$SECRET\",
+            \"secret\": \"$BT_SECRET\",
             \"dir\": \"/data\",
             \"use_relay_server\": false,
             \"use_tracker\": false,
-            \"search_lan\": true,
-            \"use_sync_trash\": false
+            \"search_lan\": false,
+            \"use_sync_trash\": false,
+            \"known_hosts\": [
+              $BT_KNOWN_HOSTS
+            ]
         }
     ]
 }" > /btsync/btsync.conf
 
-btsync --config /btsync/btsync.conf --nodaemon
+btsync --config /btsync/btsync.conf --nodaemon $@

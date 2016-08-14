@@ -1,4 +1,7 @@
 FROM ubuntu:16.04
+
+ENV BT_PORT 55555
+
 RUN apt-get update && apt-get install -y curl && apt-get clean && \
     curl -o /usr/bin/btsync.tar.gz \
     https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz && \
@@ -12,7 +15,6 @@ RUN chmod +x /usr/bin/start-btsync
 
 VOLUME ["/data"]
 
-EXPOSE 8888
-EXPOSE 55555
+EXPOSE $BT_PORT
 
 ENTRYPOINT ["start-btsync"]
